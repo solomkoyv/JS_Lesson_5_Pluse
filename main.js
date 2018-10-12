@@ -7,7 +7,7 @@ let dataAndTime = new Date(),
   year = dataAndTime.getFullYear(),
   startData = document.querySelector("#start").value,
   endData = document.querySelector("#end").value,
-  result = document.querySelector("#res").value,
+  result = document.querySelector("#res"),
   btn = document.querySelector("button");
 
 function showData(dataAndTime) {
@@ -36,7 +36,7 @@ function showData(dataAndTime) {
   }
   console.log(h + ":" + m + ":" + s + " " + date + "." + month + "." + year);
 }
-// showData(dataAndTime);
+showData(dataAndTime);
 function rusDay(d) {
   let week = [
     "воскресенье",
@@ -53,13 +53,18 @@ function rusDay(d) {
     }
   });
 }
-// rusDay(d);
-
-// function numDay(dataAndTime, startData, endData) {
-//   console.log(new Date(startData));
-//   console.log(endData);
-//   console.log(result);
-// }
-
-showData(dataAndTime);
 rusDay(d);
+
+function numDay(dataAndTime) {
+  let startDate = document.body.querySelector("#start").value,
+    endData = document.body.querySelector("#end").value,
+    oneDay = 1000 * 60 * 60 * 24,
+    numDay = 0;
+  startDate = new Date(startDate);
+  endData = new Date(endData);
+
+  numDay = Math.floor((endData - startDate) / oneDay);
+  console.log(result);
+  result.value = numDay;
+}
+// текущая дата 2018,10,12   мой д/р 2019,03,24 проверочка сколько дней до моего дня рождения
